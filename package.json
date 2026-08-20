@@ -1,0 +1,21 @@
+{
+  "name": "web-tracing-system",
+  "version": "1.0.0",
+  "private": true,
+  "description": "基于 Cloudflare Workers + Hono + D1 与 Vue 3 的前端埋点数据收集系统及管理后台",
+  "scripts": {
+    "dev:collector": "npm --prefix packages/collector run dev",
+    "dev:dashboard": "npm --prefix packages/dashboard run dev",
+    "build:sdk": "npm --prefix packages/sdk run build",
+    "build:dashboard": "npm --prefix packages/dashboard run build",
+    "build:collector": "npm --prefix packages/collector run build",
+    "build": "npm run build:sdk && npm run build:dashboard",
+    "deploy": "npm run build && npm --prefix packages/collector run deploy"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "@cloudflare/workerd-windows-64": "^1.20260819.1"
+  }
+}
