@@ -13,8 +13,8 @@
   "d1_databases": [
     {
       "binding": "DB",
-      "database_name": "web-tracing-db",
-      "database_id": "8739f3dc-2fdd-4a46-b7ed-d2f420dd1006",
+      "database_name": "web-analytics",
+      "database_id": "",
     },
   ],
 }
