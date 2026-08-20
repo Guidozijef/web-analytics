@@ -66,6 +66,15 @@ export function clearUser(): void {
 }
 
 /**
+ * 手动冲刷并立即发送当前队列中的全量事件
+ */
+export function flush(): void {
+  if (globalTracker) {
+    globalTracker.flush();
+  }
+}
+
+/**
  * 快捷埋点方法
  */
 export function track(eventName: string, params: Record<string, unknown> = {}): void {
@@ -81,5 +90,6 @@ export default {
   getTracker,
   setUser,
   clearUser,
+  flush,
   track,
 };
