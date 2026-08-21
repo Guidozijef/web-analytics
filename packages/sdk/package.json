@@ -1,12 +1,38 @@
 {
-  "name": "@web-tracing/sdk",
+  "name": "web-analytics-sdk",
   "version": "1.0.0",
-  "main": "dist/index.cjs",
+  "description": "轻量级、无侵入的前端全自动埋点、性能监控、接口监听与报错追踪 SDK",
+  "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
-  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "web-tracing",
+    "analytics",
+    "monitoring",
+    "sdk",
+    "performance",
+    "error-tracker",
+    "event-tracking"
+  ],
+  "author": "",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
   },
   "devDependencies": {
     "typescript": "^5.7.0"
