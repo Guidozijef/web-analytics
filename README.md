@@ -12,7 +12,7 @@
    - 自动提取 Cloudflare Edge 节点的 IP、国家/地区地理位置信息。
    - 接入 CORS 安全防护与参数化查询防 SQL 注入。
 
-2. **轻量级前端埋点 SDK (`@web-tracing/sdk`)**:
+2. **轻量级前端埋点 SDK (`@web-analyze/sdk`)**:
    - **自动 PV/UV 监测**: 兼容多页及 SPA (History API & Hash 路由变化)。
    - **无侵入点击埋点**: 声明 `data-track="button_id"` 即可零代码拦截收集。
    - **自动异常监控**: 捕获全局 JS 报错及 `Unhandled Promise Rejection` 错误堆栈。
@@ -75,6 +75,7 @@ npm --prefix packages/collector run d1:init:local
 ```bash
 npm run dev:collector
 ```
+
 后端服务将运行在 `http://127.0.0.1:8787`。
 
 ### 4. 启动 Vue 3 数据分析后台 (Dashboard)
@@ -84,6 +85,7 @@ npm run dev:collector
 ```bash
 npm run dev:dashboard
 ```
+
 前端后台将运行在 `http://localhost:5173`。访问页面后可进入 **SDK 接入指引** 页面点击“在线实时模拟埋点测试”按钮，体验数据的实时生成与图标渲染。
 
 ---
@@ -101,6 +103,7 @@ npx wrangler d1 create web-tracing-db
 ```
 
 终端将打印类似如下的配置：
+
 ```json
 {
   "binding": "DB",
@@ -108,6 +111,7 @@ npx wrangler d1 create web-tracing-db
   "database_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 }
 ```
+
 请将返回的 `database_id` 填入 `packages/collector/wrangler.jsonc` 文件中的 `database_id` 字段。
 
 ### 第二步：执行线上数据库 Schema 初始化
@@ -128,24 +132,24 @@ npm run deploy
 
 ## 💡 前端 SDK 集成示例 (SDK Quickstart)
 
-在任何 HTML / Vue / React 应用中引入 `@web-tracing/sdk`：
+在任何 HTML / Vue / React 应用中引入 `@web-analyze/sdk`：
 
 ```typescript
-import WebTracing from '@web-tracing/sdk';
+import WebTracing from "@web-analyze/sdk";
 
 // 1. 初始化 SDK
 WebTracing.init({
-  appId: 'my-web-app',
-  requestUrl: 'https://web-tracing-collector.<your-subdomain>.workers.dev/api/v1/track',
+  appId: "my-web-app",
+  requestUrl: "https://web-tracing-collector.<your-subdomain>.workers.dev/api/v1/track",
   autoPV: true,
   autoClick: true,
   autoError: true,
-  autoPerformance: true
+  autoPerformance: true,
 });
 
 // 2. HTML 声明式点击埋点
 // <button data-track="pay_button" data-track-params='{"amount": 100}'>立即支付</button>
 
 // 3. 手动触发自定义事件
-WebTracing.track('custom_event_name', { userId: '12345' });
+WebTracing.track("custom_event_name", { userId: "12345" });
 ```

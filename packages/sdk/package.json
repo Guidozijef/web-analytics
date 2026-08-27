@@ -1,5 +1,5 @@
 {
-  "name": "web-analytics-sdk",
+  "name": "@web-analyze/sdk",
   "version": "1.0.0",
   "description": "轻量级、无侵入的前端全自动埋点、性能监控、接口监听与报错追踪 SDK",
   "main": "dist/index.js",
