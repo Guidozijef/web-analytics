@@ -8,7 +8,9 @@
 
 采用 **工业级异步批量事件队列与定时/空闲上报引擎**，绝对不阻塞任何现有的业务 API 请求与页面渲染！
 
----
+![项目截图](https://raw.githubusercontent.com/Guidozijef/web-analytics/refs/heads/main/packages/sdk/src/web-analyze.png)
+
+---`
 
 ## 📦 安装 (Installation)
 

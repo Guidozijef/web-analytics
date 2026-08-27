@@ -128,6 +128,8 @@ npm run deploy
 
 部署完成后，Cloudflare Wrangler 将输出包含 API 与 Vue 3 管理后台的统一 Worker URL (如 `https://web-tracing-collector.<your-subdomain>.workers.dev`)，即可直接在线访问！
 
+![项目截图](https://raw.githubusercontent.com/Guidozijef/web-analytics/refs/heads/main/packages/sdk/src/web-analyze.png)
+
 ---
 
 ## 💡 前端 SDK 集成示例 (SDK Quickstart)
